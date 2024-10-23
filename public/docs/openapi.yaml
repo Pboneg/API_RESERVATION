@@ -1,0 +1,680 @@
+openapi: 3.0.3
+info:
+  title: reservation
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: doloremque
+                  nullable: false
+              required:
+                - user_name
+                - password
+      security: []
+  /api/forgot-password:
+    post:
+      summary: ''
+      operationId: postApiForgotPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: validation.email.
+                  example: carter.macejkovic@example.org
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/users:
+    post:
+      summary: ''
+      operationId: postApiUsers
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: totam
+                  nullable: false
+                user_name:
+                  type: string
+                  description: ''
+                  example: sit
+                  nullable: false
+                email:
+                  type: string
+                  description: validation.email.
+                  example: skylar.rippin@example.org
+                  nullable: false
+                activation_code:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                status:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                password:
+                  type: string
+                  description: 'Must match the regex /[a-z]/. Must match the regex /[A-Z]/. Must match the regex /[0-9]/. Must match the regex /[@$!%*?&]/. validation.min.'
+                  example: '}zQ$^md]]'
+                  nullable: false
+              required:
+                - name
+                - user_name
+                - email
+                - password
+      security: []
+    get:
+      summary: ''
+      operationId: getApiUsers
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: Bonjour
+                      user_name: bjr
+                      email: bjr@gmail.com
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Bonjour
+                        user_name: bjr
+                        email: bjr@gmail.com
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Bonjour
+                        user_name:
+                          type: string
+                          example: bjr
+                        email:
+                          type: string
+                          example: bjr@gmail.com
+      tags:
+        - Endpoints
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: ''
+      operationId: getApiUsersId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: Bonjour
+                    user_name: bjr
+                    email: bjr@gmail.com
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Bonjour
+                      user_name:
+                        type: string
+                        example: bjr
+                      email:
+                        type: string
+                        example: bjr@gmail.com
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiUsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quibusdam
+                  nullable: false
+                user_name:
+                  type: string
+                  description: ''
+                  example: consequuntur
+                  nullable: false
+                email:
+                  type: string
+                  description: validation.email.
+                  example: feest.angelica@example.org
+                  nullable: false
+                activation_code:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                status:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                password:
+                  type: string
+                  description: 'Must match the regex /[a-z]/. Must match the regex /[A-Z]/. Must match the regex /[0-9]/. Must match the regex /[@$!%*?&]/. validation.min.'
+                  example: 3jJ%(;LGYRN_4>b
+                  nullable: false
+              required:
+                - name
+                - user_name
+                - email
+                - password
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiUsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/events:
+    post:
+      summary: 'Show the form for creating a new resource.'
+      operationId: showTheFormForCreatingANewResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: validation.max.
+                  example: fkjgqdkfyenra
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'In quam corporis voluptatem et iste modi.'
+                  nullable: false
+                location:
+                  type: string
+                  description: validation.max.
+                  example: epecudvwdvl
+                  nullable: false
+                event_date:
+                  type: string
+                  description: 'validation.date validation.after.'
+                  example: '2058-11-11'
+                  nullable: false
+                max_attendees:
+                  type: integer
+                  description: validation.min.
+                  example: 43
+                  nullable: false
+                available_seats:
+                  type: integer
+                  description: 'validation.min validation.max.'
+                  example: 15
+                  nullable: false
+                reservations_closed:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                image:
+                  type: string
+                  format: binary
+                  description: 'validation.image validation.max.'
+                  nullable: true
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+              required:
+                - title
+                - description
+                - location
+                - event_date
+                - max_attendees
+                - available_seats
+      security: []
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/events/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: validation.max.
+                  example: earnm
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Vel natus similique nesciunt ratione aperiam corporis reiciendis natus.'
+                  nullable: false
+                location:
+                  type: string
+                  description: validation.max.
+                  example: cdkzxs
+                  nullable: false
+                event_date:
+                  type: string
+                  description: 'validation.date validation.after.'
+                  example: '2102-03-26'
+                  nullable: false
+                max_attendees:
+                  type: integer
+                  description: validation.min.
+                  example: 45
+                  nullable: false
+                available_seats:
+                  type: integer
+                  description: 'validation.min validation.max.'
+                  example: 7
+                  nullable: false
+                reservations_closed:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+                image:
+                  type: string
+                  format: binary
+                  description: 'validation.image validation.max.'
+                  nullable: true
+                user_id:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+              required:
+                - title
+                - description
+                - location
+                - event_date
+                - max_attendees
+                - available_seats
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the event.'
+        example: nulla
+        required: true
+        schema:
+          type: string
+  /api/bookings:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the events table.'
+                  example: labore
+                  nullable: false
+                number_of_seats:
+                  type: integer
+                  description: 'validation.min validation.max.'
+                  example: 17
+                  nullable: false
+              required:
+                - event_id
+                - number_of_seats
+      security: []
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/bookings/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the events table.'
+                  example: provident
+                  nullable: false
+                number_of_seats:
+                  type: integer
+                  description: 'validation.min validation.max.'
+                  example: 19
+                  nullable: false
+              required:
+                - event_id
+                - number_of_seats
+      security: []
+    delete:
+      summary: 'delete the specified resource from storage.'
+      operationId: deleteTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the booking.'
+        example: dolore
+        required: true
+        schema:
+          type: string
+  /api/notifications:
+    post:
+      summary: ''
+      operationId: postApiNotifications
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: "Récupérer toutes les notifications pour l'utilisateur connecté."
+      operationId: rcuprerToutesLesNotificationsPourLutilisateurConnect
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/notifications/{id}/read':
+    post:
+      summary: 'Marquer une notification comme lue.'
+      operationId: marquerUneNotificationCommeLue
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the notification.'
+        example: eaque
+        required: true
+        schema:
+          type: string
+  /api/activate:
+    post:
+      summary: ''
+      operationId: postApiActivate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: validation.email.
+                  example: xgreen@example.net
+                  nullable: false
+                activateCount:
+                  type: string
+                  description: ''
+                  example: sed
+                  nullable: false
+              required:
+                - email
+                - activateCount
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
