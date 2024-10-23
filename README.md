@@ -28,7 +28,9 @@ Avant de commencer, assurez-vous d'avoir installé :
 ## Installation
 
 **Clone le dépôt :**
-   git clone https://votre-repo.git
+   git clone [https://votre-repo.git](https://github.com/Pboneg/API_RESERVATION.git)
+
+   cd API_RESERVATION
 
 
 **Installer les dépendances :**
